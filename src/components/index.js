@@ -70,6 +70,10 @@ export const Button = styled.button`
   font-weight: 500;
   cursor: pointer;
   font-family: inter;
+  &:disabled {
+    opacity: 70%;
+    cursor: not-allowed;
+  }
 `;
 
 export const Input = styled.input`

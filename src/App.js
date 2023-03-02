@@ -8,7 +8,7 @@ import Stepper from "./components/Stepper";
 import Summary from "./components/Summary";
 
 function App() {
-  const [step, setStep] = React.useState(2);
+  const [step, setStep] = React.useState(1);
   const {
     handleSubmit,
     formState: { errors },
@@ -22,14 +22,13 @@ function App() {
       address: "",
       shipment: "GO-SEND",
       payment: "e-Wallet",
-      dropshipEnable: false,
+      dropshipEnable: true,
       dropshipName: "",
       dropshipPhone: "",
       total: 500000,
     },
   });
   const field = watch();
-  console.log(errors, "Errorsss");
 
   const onSubmit = (data) => {
     console.log(data, ">>>>");
@@ -42,11 +41,11 @@ function App() {
         {(() => {
           switch (step) {
             case 1:
-              return <Delivery field={field} register={register} setValue={setValue} />;
+              return <Delivery field={field} register={register} setValue={setValue} setStep={setStep} />;
             case 2:
-              return <Shipment field={field} setValue={setValue} />;
+              return <Shipment field={field} setValue={setValue} setStep={setStep} />;
             default:
-              return <Finish />;
+              return <Finish setStep={setStep} />;
           }
         })()}
         <Summary field={field} errors={errors} step={step} setStep={setStep} setValue={setValue} />

@@ -4,10 +4,10 @@ import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
 import ShipmentCard from "./ShipmentCard";
 
-const Shipment = ({ field, setValue }) => {
+const Shipment = ({ field, setValue, setStep }) => {
   return (
     <Box display="flex" flexDirection="column" gap="30px" height="100%" width="70%" padding="40px 40px 20px">
-      <BackNavigation>Back to delivery</BackNavigation>
+      <BackNavigation onClick={() => setStep(1)}>Back to delivery</BackNavigation>
       <Box display="flex" flexDirection="column" gap="60px">
         <Box display="flex" flexDirection="column" gap="30px">
           <StyledHeader>Shipment</StyledHeader>

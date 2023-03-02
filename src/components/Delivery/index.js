@@ -3,8 +3,7 @@ import { Box, Input, Text, TextArea } from "..";
 import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
 
-const Delivery = ({ field, register, setValue }) => {
-  const [checked, setChecked] = React.useState(false);
+const Delivery = ({ field, register, setValue, setStep }) => {
   const handleChange = (e) => {
     const { checked } = e.target;
     setValue("dropshipEnable", checked);
@@ -15,17 +14,16 @@ const Delivery = ({ field, register, setValue }) => {
     } else {
       setValue("total", field.total + 5900);
     }
-    setChecked(checked);
   };
 
   return (
     <Box display="flex" flexDirection="column" gap="30px" height="100%" width="70%" padding="40px 40px 20px">
-      <BackNavigation>Back to cart</BackNavigation>
+      <BackNavigation onClick={() => setStep(1)}>Back to cart</BackNavigation>
       <Box display="flex" flexDirection="column" gap="36px">
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <StyledHeader>Delivery details</StyledHeader>
           <Box display="flex" alignItems="center">
-            <input type="checkbox" id="dropship" checked={checked} onChange={handleChange} />
+            <input type="checkbox" id="dropship" checked={field.dropshipEnable} onChange={handleChange} />
             <label htmlFor="dropship">
               <Text color="#2D2A40" fontWeight="500" fontSize="14px" opacity="80%">
                 Send as dropshipper
@@ -40,8 +38,8 @@ const Delivery = ({ field, register, setValue }) => {
             <TextArea rows={5} {...register("address", { required: true })} style={{ resize: "none" }}></TextArea>
           </Box>
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
-            <Input type="text" {...register("dropshipName", { required: checked })} disabled={!checked} />
-            <Input type="number" {...register("dropshipPhone", { required: checked })} disabled={!checked} />
+            <Input type="text" {...register("dropshipName", { required: field.dropshipEnable })} disabled={!field.dropshipEnable} />
+            <Input type="number" {...register("dropshipPhone", { required: field.dropshipEnable })} disabled={!field.dropshipEnable} />
           </Box>
         </Box>
       </Box>

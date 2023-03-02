@@ -18,9 +18,7 @@ const price = {
 
 const Summary = ({ field, errors, step, setStep, setValue }) => {
   React.useEffect(() => {
-    if (step === 2) {
-      setValue("total", 500000 + price[field.shipment] + (field.dropshipEnable ? 5900 : 0));
-    }
+    setValue("total", 500000 + (step !== 1 ? price[field.shipment] : 0) + (field.dropshipEnable ? 5900 : 0));
   }, [step]);
   return (
     <Box display="flex" height="100%" width="30%" padding="90px 0 0">

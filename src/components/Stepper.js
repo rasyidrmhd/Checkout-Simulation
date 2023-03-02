@@ -5,7 +5,7 @@ import Icon from "./Icon";
 const StepperGroup = ({ children, step, showArrow = true }) => {
   return (
     <Box display="flex" gap="20px" alignItems="center">
-      <Box display="flex" flexDirection="row" gap="10px" alignItems="center">
+      <Box display="flex" gap="10px" alignItems="center">
         <Box width="30px" height="30px" display="flex" backgroundColor="#FFE4B8" borderRadius="100%" alignItems="center" justifyContent="center">
           <Text fontSize="16px" fontWeight="500" color="#FF8A00">
             {step}

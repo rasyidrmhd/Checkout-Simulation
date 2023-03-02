@@ -4,6 +4,8 @@ export const Text = styled.text`
   color: ${(props) => props.color};
   font-weight: ${(props) => props.fontWeight};
   font-size: ${(props) => props.fontSize};
+  font-family: ${(props) => props.fontFamily};
+  opacity: ${(props) => props.opacity};
 `;
 
 export const Box = styled.div`
@@ -26,4 +28,18 @@ export const Box = styled.div`
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
   border: ${(props) => props.border};
+  cursor: ${(props) => props.cursor};
+  opacity: ${(props) => props.opacity};
+`;
+
+export const Button = styled.button`
+  padding: 20px 40px;
+  width: ${(props) => (props.block ? "100%" : "fit-content")};
+  border-radius: 2px;
+  background-color: #ff8a00;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
 `;

@@ -4,6 +4,7 @@ import Delivery from "./components/Delivery";
 import Divider from "./components/Divider";
 import Finish from "./components/Finish";
 import Icon from "./components/Icon";
+import Shipment from "./components/Shipment";
 import Stepper from "./components/Stepper";
 import Summary from "./components/Summary";
 
@@ -13,7 +14,8 @@ function App() {
       <Stepper />
       <Box backgroundColor="white" borderRadius="4px" boxShadow="2px 10px 20px rgba(255, 138, 0, 0.1)" width="100%" display="flex">
         {/* <Delivery /> */}
-        <Finish />
+        <Shipment />
+        {/* <Finish /> */}
         <Summary />
       </Box>
     </Box>

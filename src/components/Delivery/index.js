@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Input, Text, TextArea } from "..";
+import { Box, Input, Text, TextArea, Label } from "..";
 import BackNavigation from "../BackNavigation";
 import Icon from "../Icon";
 import StyledHeader from "../StyledHeader";
@@ -43,7 +43,10 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
                   <Icon icon={errors?.email ? "clear" : "check"} weight="400" size="18px" color={errors?.email ? "#FF8A00" : "#1BD97B"} />
                 </Box>
               )}
-              <Input type="text" isError={errors?.email} isValid={!errors?.email && field.email.length} {...register("email", { required: true, pattern: /\S+@\S+\.\S+/i })} />
+              <Input id="email" type="text" isError={errors?.email} isValid={!errors?.email && field.email.length} {...register("email", { required: true, pattern: /\S+@\S+\.\S+/i })} />
+              <Label htmlFor="email" position="absolute" fontSize={field.email.length > 0 ? "13px" : "16px"} top={field.email.length > 0 ? "12px" : "20px"} left="15px">
+                <Text color={!errors?.email && field.email.length ? "#1BD97B" : errors?.email ? "#FF8A00" : "#cccccc"}>Email</Text>
+              </Label>
             </Box>
             {errors?.email && (
               <Text fontSize="14px" color="#FF8A00">
@@ -56,7 +59,10 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
                   <Icon icon={errors?.phone ? "clear" : "check"} weight="400" size="18px" color={errors?.phone ? "#FF8A00" : "#1BD97B"} />
                 </Box>
               )}
-              <Input type="text" isError={errors?.phone} isValid={!errors?.phone && field.phone.length} {...register("phone", { required: true, pattern: /^[0-9-+()]+$/i, minLength: 6, maxLength: 20 })} />
+              <Input id="phone" type="text" isError={errors?.phone} isValid={!errors?.phone && field.phone.length} {...register("phone", { required: true, pattern: /^[0-9-+()]+$/i, minLength: 6, maxLength: 20 })} />
+              <Label htmlFor="phone" position="absolute" fontSize={field.phone.length > 0 ? "13px" : "16px"} top={field.phone.length > 0 ? "12px" : "20px"} left="15px">
+                <Text color={!errors?.phone && field.phone.length ? "#1BD97B" : errors?.phone ? "#FF8A00" : "#cccccc"}>Phone Number</Text>
+              </Label>
             </Box>
             {errors?.phone && (
               <Text fontSize="14px" color="#FF8A00">
@@ -83,7 +89,10 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
                   {addressLength}
                 </Text>
               </Box>
-              <TextArea isError={errors?.address} isValid={!errors?.address && field.address.length} rows={4} {...register("address", { required: true, maxLength: 120 })} style={{ resize: "none" }}></TextArea>
+              <TextArea id="address" isError={errors?.address} isValid={!errors?.address && field.address.length} rows={4} {...register("address", { required: true, maxLength: 120 })} style={{ resize: "none" }}></TextArea>
+              <Label htmlFor="address" position="absolute" fontSize={field.address.length > 0 ? "13px" : "16px"} top={field.address.length > 0 ? "12px" : "20px"} left="15px">
+                <Text color={!errors?.address && field.address.length ? "#1BD97B" : errors?.address ? "#FF8A00" : "#cccccc"}>Address</Text>
+              </Label>
             </Box>
             {errors?.address && (
               <Text fontSize="14px" color="#FF8A00">
@@ -98,7 +107,17 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
                   <Icon icon={errors?.dropshipName ? "clear" : "check"} weight="400" size="18px" color={errors?.dropshipName ? "#FF8A00" : "#1BD97B"} />
                 </Box>
               )}
-              <Input isError={errors?.dropshipName} isValid={!errors?.dropshipName && field.dropshipName.length} type="text" {...register("dropshipName", { required: field.dropshipEnable })} disabled={!field.dropshipEnable} />
+              <Input
+                id="dropshipName"
+                isError={errors?.dropshipName}
+                isValid={!errors?.dropshipName && field.dropshipName.length}
+                type="text"
+                {...register("dropshipName", { required: field.dropshipEnable })}
+                disabled={!field.dropshipEnable}
+              />
+              <Label htmlFor="dropshipName" position="absolute" fontSize={field.dropshipName.length > 0 ? "13px" : "16px"} top={field.dropshipName.length > 0 ? "12px" : "20px"} left="15px">
+                <Text color={!errors?.dropshipName && field.dropshipName.length ? "#1BD97B" : errors?.dropshipName ? "#FF8A00" : "#cccccc"}>Dropshipper Name</Text>
+              </Label>
             </Box>
             {errors?.dropshipName && (
               <Text fontSize="14px" color="#FF8A00">
@@ -112,12 +131,16 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
                 </Box>
               )}
               <Input
+                id="dropshipPhone"
                 isError={errors?.dropshipPhone}
                 isValid={!errors?.dropshipPhone && field.dropshipPhone.length}
                 type="text"
-                {...register("dropshipPhone", { required: true, pattern: /^[0-9-+()]+$/i, minLength: 6, maxLength: 20 })}
+                {...register("dropshipPhone", { required: field.dropshipEnable, pattern: /^[0-9-+()]+$/i, minLength: 6, maxLength: 20 })}
                 disabled={!field.dropshipEnable}
               />
+              <Label htmlFor="dropshipPhone" position="absolute" fontSize={field.dropshipPhone.length > 0 ? "13px" : "16px"} top={field.dropshipPhone.length > 0 ? "12px" : "20px"} left="15px">
+                <Text color={!errors?.dropshipPhone && field.dropshipPhone.length ? "#1BD97B" : errors?.dropshipPhone ? "#FF8A00" : "#cccccc"}>Dropshipper Phone Number</Text>
+              </Label>
             </Box>
             {errors?.dropshipPhone && (
               <Text fontSize="14px" color="#FF8A00">

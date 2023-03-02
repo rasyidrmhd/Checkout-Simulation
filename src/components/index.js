@@ -52,9 +52,21 @@ export const Button = styled.button`
   }
 `;
 
+export const Label = styled.label`
+  font-family: inter;
+  font-weight: 500;
+  font-size: ${(props) => props.fontSize};
+  position: ${(props) => props.position};
+  top: ${(props) => props.top};
+  bottom: ${(props) => props.bottom};
+  right: ${(props) => props.right};
+  left: ${(props) => props.left};
+`;
+
 export const Input = styled.input`
-  padding: 20px 45px 15px 20px;
+  padding: 30px 45px 11px 15px;
   width: 100%;
+  height: 60px;
   font-family: inter;
   font-weight: 500;
   font-size: 16px;
@@ -67,10 +79,14 @@ export const Input = styled.input`
     border: 1px solid ${(props) => (props.isError ? "#FF8A00" : props.isValid ? "#1BD97B" : "blue")};
     outline: none;
   }
+  &:focus ~ ${Label} {
+    font-size: 13px;
+    top: 12px;
+  }
 `;
 
 export const TextArea = styled.textarea`
-  padding: 23px 15px 20px;
+  padding: 28px 15px 20px;
   width: 100%;
   font-family: inter;
   font-weight: 500;
@@ -79,5 +95,9 @@ export const TextArea = styled.textarea`
   &:focus {
     border: 1px solid ${(props) => (props.isError ? "#FF8A00" : props.isValid ? "#1BD97B" : "blue")};
     outline: none;
+  }
+  &:focus ~ ${Label} {
+    font-size: 13px;
+    top: 12px;
   }
 `;

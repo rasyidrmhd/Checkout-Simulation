@@ -64,7 +64,7 @@ function App() {
   return (
     <Box position="relative" backgroundColor="#fffae6" padding="50px 55px" minHeight="100vh" display="flex" justifyContent="center">
       <Stepper step={step} />
-      <Form onSubmit={handleSubmit(onSubmit)} backgroundColor="white" borderRadius="4px" boxShadow="2px 10px 20px rgba(255, 138, 0, 0.1)" width="100%" display="flex">
+      <Box as="form" onSubmit={handleSubmit(onSubmit)} backgroundColor="white" borderRadius="4px" boxShadow="2px 10px 20px rgba(255, 138, 0, 0.1)" width="100%" display="flex">
         {(() => {
           switch (step) {
             case 1:
@@ -76,7 +76,7 @@ function App() {
           }
         })()}
         <Summary field={field} errors={errors} step={step} setStep={setStep} setValue={setValue} />
-      </Form>
+      </Box>
     </Box>
   );
 }

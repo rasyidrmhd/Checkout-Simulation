@@ -1,12 +1,14 @@
 import React from "react";
 import "./App.css";
-import { Text } from "./components";
+import { Text, Box } from "./components";
+import Stepper from "./components/Stepper";
 
 function App() {
   const orange = "#FF8A00";
   return (
     <div className="App">
-      <div className="stepper">
+      <Stepper />
+      {/* <div className="stepper">
         <div className="stepper-group">
           <div className="box-number" style={{ backgroundColor: orange, color: "white" }}>
             1
@@ -27,7 +29,7 @@ function App() {
           </div>
           <span>Finish</span>
         </div>
-      </div>
+      </div> */}
       <div className="box">
         <div className="back">{"<-"} Back to cart</div>
       </div>

@@ -3,16 +3,19 @@ import { Box, Text } from "..";
 import Icon from "../Icon";
 
 const ShipmentCard = ({ label, price, active }) => {
+  const [hover, setHover] = React.useState(false);
   return (
     <Box
       display="flex"
       justifyContent="space-between"
       alignItems="center"
       padding="12px 15px"
-      border={`${active ? "2px" : "1px"} solid ${active ? "#1BD97B" : "#CCCCCC"}`}
+      border={`${active ? "2px" : "1px"} solid ${active || hover ? "#1BD97B" : "#CCCCCC"}`}
       backgroundColor={active ? "#1BD97B1A" : "white"}
       width="180px"
       cursor="pointer"
+      onMouseEnter={() => !active && setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       <Box display="flex" flexDirection="column" gap="2px">
         <Text fontWeight="500" fontSize={!price ? "16px" : "13px"} opacity={active ? "80%" : "60%"}>

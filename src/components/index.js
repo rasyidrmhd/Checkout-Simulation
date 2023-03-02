@@ -6,6 +6,7 @@ export const Text = styled.text`
   font-size: ${(props) => props.fontSize};
   font-family: ${(props) => props.fontFamily};
   opacity: ${(props) => props.opacity};
+  line-height: ${(props) => props.lineHeight};
 `;
 
 export const Box = styled.div`
@@ -20,6 +21,7 @@ export const Box = styled.div`
   height: ${(props) => props.height};
   background-color: ${(props) => props.backgroundColor};
   padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
   border-radius: ${(props) => props.borderRadius};
   box-shadow: ${(props) => props.boxShadow};
   display: ${(props) => props.display};
@@ -30,6 +32,7 @@ export const Box = styled.div`
   border: ${(props) => props.border};
   cursor: ${(props) => props.cursor};
   opacity: ${(props) => props.opacity};
+  z-index: ${(props) => props.zIndex};
 `;
 
 export const Button = styled.button`

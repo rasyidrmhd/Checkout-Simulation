@@ -5,9 +5,9 @@ import PriceItem from "./PriceItem";
 
 const Summary = () => {
   return (
-    <Box display="flex" flexDirection="column" height="100%" width="30%" padding="20px" justifyContent="space-between">
+    <Box display="flex" flexDirection="column" height="100%" width="30%" padding="0 20px 20px" justifyContent="space-between">
       <Box display="flex" flexDirection="column" gap="10px">
-        <Text fontSize="24px" color="#FF8A00" fontFamily="montserrat" fontWeight="700">
+        <Text fontSize="24px" color="#FF8A00" fontFamily="montserrat" fontWeight="700" lineHeight="44px">
           Summary
         </Text>
         <Text fontSize="14px" fontWeight="400" opacity="60%">

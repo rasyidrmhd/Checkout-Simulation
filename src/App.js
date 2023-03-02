@@ -17,7 +17,9 @@ function App() {
     setValue,
     watch,
     reset,
+    clearErrors,
   } = useForm({
+    mode: "onChange",
     defaultValues: {
       email: "",
       phone: "",
@@ -68,7 +70,7 @@ function App() {
         {(() => {
           switch (step) {
             case 1:
-              return <Delivery field={field} register={register} setValue={setValue} setStep={setStep} errors={errors} />;
+              return <Delivery field={field} register={register} setValue={setValue} setStep={setStep} errors={errors} clearErrors={clearErrors} />;
             case 2:
               return <Shipment field={field} setValue={setValue} setStep={setStep} />;
             default:

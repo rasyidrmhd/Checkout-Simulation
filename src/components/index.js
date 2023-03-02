@@ -53,7 +53,31 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
+  padding: 20px 45px 15px 20px;
+  width: 100%;
+  font-family: inter;
+  font-weight: 500;
+  font-size: 16px;
+  border: 1px solid ${(props) => (props.isError ? "#FF8A00" : props.isValid ? "#1BD97B" : "#cccccc")};
   type: ${(props) => props.type};
+  &:disabled {
+    cursor: not-allowed;
+  }
+  &:focus {
+    border: 1px solid ${(props) => (props.isError ? "#FF8A00" : props.isValid ? "#1BD97B" : "blue")};
+    outline: none;
+  }
 `;
 
-export const TextArea = styled.textarea``;
+export const TextArea = styled.textarea`
+  padding: 23px 15px 20px;
+  width: 100%;
+  font-family: inter;
+  font-weight: 500;
+  font-size: 16px;
+  border: 1px solid ${(props) => (props.isError ? "#FF8A00" : props.isValid ? "#1BD97B" : "#cccccc")};
+  &:focus {
+    border: 1px solid ${(props) => (props.isError ? "#FF8A00" : props.isValid ? "#1BD97B" : "blue")};
+    outline: none;
+  }
+`;

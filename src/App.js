@@ -6,6 +6,8 @@ import Finish from "./components/Finish";
 import Shipment from "./components/Shipment";
 import Stepper from "./components/Stepper";
 import Summary from "./components/Summary";
+import debounce from "lodash.debounce";
+import Cookies from "js-cookie";
 
 function App() {
   const [step, setStep] = React.useState(1);
@@ -22,7 +24,7 @@ function App() {
       address: "",
       shipment: "GO-SEND",
       payment: "e-Wallet",
-      dropshipEnable: true,
+      dropshipEnable: false,
       dropshipName: "",
       dropshipPhone: "",
       total: 500000,
@@ -33,6 +35,26 @@ function App() {
   const onSubmit = (data) => {
     console.log(data, ">>>>");
   };
+
+  const save = React.useCallback(
+    debounce((field) => {
+      Cookies.set("checkout", JSON.stringify(field));
+    }, 2000),
+    []
+  );
+
+  React.useEffect(() => {
+    save(field);
+  }, [field]);
+
+  React.useEffect(() => {
+    if (Cookies.get("checkout")) {
+      const data = JSON.parse(Cookies.get("checkout"));
+      Object.keys(data).forEach((field) => {
+        setValue(field, data[field]);
+      });
+    }
+  }, []);
 
   return (
     <Box position="relative" backgroundColor="#fffae6" padding="50px 55px" minHeight="100vh" display="flex" justifyContent="center">

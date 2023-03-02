@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text } from "..";
 import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
+import { estimate } from "../summary";
 
 const Finish = ({ setStep, field, setValue, reset }) => {
   const orderId = React.useMemo(() => {
@@ -28,7 +29,7 @@ const Finish = ({ setStep, field, setValue, reset }) => {
           <Box display="flex" flexDirection="column" gap="10px">
             <Text fontSize="14px">Order ID : {field.orderId || orderId}</Text>
             <Text fontSize="14px" opacity="60%">
-              Your order will be delivered today with GO-SEND
+              Your order will be delivered {estimate[field.shipment]} with {field.shipment}
             </Text>
           </Box>
         </Box>

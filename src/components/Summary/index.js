@@ -4,7 +4,7 @@ import Divider from "../Divider";
 import DeliveryItem from "./DeliveryItem";
 import PriceItem from "./PriceItem";
 
-const estimate = {
+export const estimate = {
   "GO-SEND": "today",
   JNE: "2 days",
   "Personal Courier": "1 day",

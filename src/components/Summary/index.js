@@ -4,7 +4,7 @@ import Divider from "../Divider";
 import DeliveryItem from "./DeliveryItem";
 import PriceItem from "./PriceItem";
 
-const Summary = () => {
+const Summary = ({ field, errors, step, setStep }) => {
   return (
     <Box display="flex" height="100%" width="30%" padding="90px 0 0">
       <Divider orientation="vertical" height="calc(100% - 20px)" thickness="1px" backgroundColor="#FF8A00" opacity="20%" />

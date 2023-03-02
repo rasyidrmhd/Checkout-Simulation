@@ -32,7 +32,31 @@ export const Box = styled.div`
   border: ${(props) => props.border};
   cursor: ${(props) => props.cursor};
   opacity: ${(props) => props.opacity};
-  z-index: ${(props) => props.zIndex};
+`;
+
+export const Form = styled.form`
+  position: ${(props) => props.position};
+  top: ${(props) => props.top};
+  bottom: ${(props) => props.bottom};
+  right: ${(props) => props.right};
+  left: ${(props) => props.left};
+  min-width: ${(props) => props.minWidth};
+  width: ${(props) => props.width};
+  min-height: ${(props) => props.minHeight};
+  height: ${(props) => props.height};
+  background-color: ${(props) => props.backgroundColor};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => props.margin};
+  border-radius: ${(props) => props.borderRadius};
+  box-shadow: ${(props) => props.boxShadow};
+  display: ${(props) => props.display};
+  flex-direction: ${(props) => props.flexDirection};
+  gap: ${(props) => props.gap};
+  align-items: ${(props) => props.alignItems};
+  justify-content: ${(props) => props.justifyContent};
+  border: ${(props) => props.border};
+  cursor: ${(props) => props.cursor};
+  opacity: ${(props) => props.opacity};
 `;
 
 export const Button = styled.button`
@@ -47,3 +71,9 @@ export const Button = styled.button`
   cursor: pointer;
   font-family: inter;
 `;
+
+export const Input = styled.input`
+  type: ${(props) => props.type};
+`;
+
+export const TextArea = styled.textarea``;

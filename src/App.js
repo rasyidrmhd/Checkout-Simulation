@@ -1,39 +1,22 @@
 import React from "react";
-import "./App.css";
 import { Text, Box } from "./components";
+import Icon from "./components/Icon";
 import Stepper from "./components/Stepper";
 
 function App() {
-  const orange = "#FF8A00";
   return (
-    <div className="App">
+    <Box position="relative" backgroundColor="#fffae6" padding="50px 55px" minHeight="100vh" display="flex" justifyContent="center">
       <Stepper />
-      {/* <div className="stepper">
-        <div className="stepper-group">
-          <div className="box-number" style={{ backgroundColor: orange, color: "white" }}>
-            1
-          </div>
-          <Text color="#ff8a00">Delivery</Text>
-          <span>{">"}</span>
-        </div>
-        <div className="stepper-group">
-          <div className="box-number" style={{ backgroundColor: orange, color: "white" }}>
-            2
-          </div>
-          <span>Payment</span>
-          <span>{">"}</span>
-        </div>
-        <div className="stepper-group">
-          <div className="box-number" style={{ backgroundColor: orange, color: "white" }}>
-            3
-          </div>
-          <span>Finish</span>
-        </div>
-      </div> */}
-      <div className="box">
-        <div className="back">{"<-"} Back to cart</div>
-      </div>
-    </div>
+      <Box backgroundColor="white" borderRadius="4px" boxShadow="2px 10px 20px rgba(255, 138, 0, 0.1)" width="100%" height="550px" display="flex" flexDirection="column" gap="30px" padding="30px 40px">
+        <Box display="flex" gap="10px" alignItems="center">
+          <Icon icon="arrow_back" weight="400" size="18px" />
+          <Text weight="500" size="14px">
+            Back to cart
+          </Text>
+        </Box>
+        <Box border="1px solid red"></Box>
+      </Box>
+    </Box>
   );
 }
 

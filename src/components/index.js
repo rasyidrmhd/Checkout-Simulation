@@ -25,4 +25,5 @@ export const Box = styled.div`
   gap: ${(props) => props.gap};
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
+  border: ${(props) => props.border};
 `;

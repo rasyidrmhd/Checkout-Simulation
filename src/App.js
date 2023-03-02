@@ -49,7 +49,7 @@ function App() {
               return <Finish />;
           }
         })()}
-        <Summary field={field} errors={errors} step={step} setStep={setStep} />
+        <Summary field={field} errors={errors} step={step} setStep={setStep} setValue={setValue} />
       </Form>
     </Box>
   );

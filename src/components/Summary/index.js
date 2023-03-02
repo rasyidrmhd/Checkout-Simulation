@@ -16,7 +16,12 @@ const price = {
   "Personal Courier": 29000,
 };
 
-const Summary = ({ field, errors, step, setStep }) => {
+const Summary = ({ field, errors, step, setStep, setValue }) => {
+  React.useEffect(() => {
+    if (step === 2) {
+      setValue("total", 500000 + price[field.shipment] + (field.dropshipEnable ? 5900 : 0));
+    }
+  }, [step]);
   return (
     <Box display="flex" height="100%" width="30%" padding="90px 0 0">
       <Divider orientation="vertical" height="calc(100% - 20px)" thickness="1px" backgroundColor="#FF8A00" opacity="20%" />
@@ -33,8 +38,14 @@ const Summary = ({ field, errors, step, setStep }) => {
         </Box>
         <Box display="flex" flexDirection="column" gap="20px">
           <Box display="flex" flexDirection="column" gap="10px">
-            <PriceItem label="Cost of goods" price={500000} />
-            {field.dropshipEnable && <PriceItem label="Dropshipping Fee" price={5900} />}
+            <PriceItem price={500000}>Cost of goods</PriceItem>
+            {field.dropshipEnable && <PriceItem price={5900}>Dropshipping Fee</PriceItem>}
+            {step !== 1 && (
+              <PriceItem price={price[field.shipment]}>
+                <Text fontWeight="700">{field.shipment}</Text>
+                {" shipment"}
+              </PriceItem>
+            )}
           </Box>
           <Box display="flex" justifyContent="space-between">
             <Text fontSize="24px" color="#FF8A00" fontFamily="montserrat" fontWeight="700">

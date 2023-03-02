@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Text } from "..";
 import Icon from "../Icon";
 
-const ShipmentCard = ({ label, price, active, setValue, field }) => {
+const ShipmentCard = ({ label, price, active, setValue, type, field }) => {
   const [hover, setHover] = React.useState(false);
   return (
     <Box
@@ -17,10 +17,11 @@ const ShipmentCard = ({ label, price, active, setValue, field }) => {
       onMouseEnter={() => !active && setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={() => {
-        if (field === "shipment") {
+        if (type === "shipment") {
           setValue("shipment", label);
+          setValue("total", 500000 + price + (field.dropshipEnable ? 5900 : 0));
         }
-        setValue(field, label);
+        setValue(type, label);
       }}
     >
       <Box display="flex" flexDirection="column" gap="2px">

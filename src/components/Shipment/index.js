@@ -17,7 +17,7 @@ const Shipment = ({ field, setValue }) => {
               { label: "JNE", price: 9000 },
               { label: "Personal Courier", price: 29000 },
             ].map((option, idx) => (
-              <ShipmentCard label={option.label} price={option.price} key={idx} active={option.label === field.shipment} setValue={setValue} field="shipment" />
+              <ShipmentCard label={option.label} price={option.price} key={idx} active={option.label === field.shipment} setValue={setValue} type="shipment" field={field} />
             ))}
           </Box>
         </Box>
@@ -29,7 +29,7 @@ const Shipment = ({ field, setValue }) => {
               { label: "Bank Transfer", price: "" },
               { label: "Virtual Account", price: "" },
             ].map((option, idx) => (
-              <ShipmentCard label={option.label} price={option.price} key={idx} active={option.label === field.payment} setValue={setValue} field="payment" />
+              <ShipmentCard label={option.label} price={option.price} key={idx} active={option.label === field.payment} setValue={setValue} type="payment" field={field} />
             ))}
           </Box>
         </Box>

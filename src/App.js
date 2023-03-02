@@ -1,11 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Box, Form } from "./components";
-import Delivery from "./components/Delivery";
-import Finish from "./components/Finish";
-import Shipment from "./components/Shipment";
+import { Box } from "./components";
+import Delivery from "./components/delivery";
+import Finish from "./components/finish";
+import Shipment from "./components/shipment";
 import Stepper from "./components/Stepper";
-import Summary from "./components/Summary";
+import Summary from "./components/summary";
 import debounce from "lodash.debounce";
 
 function App() {

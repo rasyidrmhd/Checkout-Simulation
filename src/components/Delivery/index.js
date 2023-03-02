@@ -3,7 +3,7 @@ import { Box, Input, Text, TextArea } from "..";
 import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
 
-const Delivery = ({ field, register, setValue, setStep }) => {
+const Delivery = ({ field, register, setValue, setStep, errors }) => {
   const handleChange = (e) => {
     const { checked } = e.target;
     setValue("dropshipEnable", checked);
@@ -15,6 +15,7 @@ const Delivery = ({ field, register, setValue, setStep }) => {
       setValue("total", field.total + 5900);
     }
   };
+  const addressLength = React.useMemo(() => field.address.length, [field.address]);
 
   return (
     <Box display="flex" flexDirection="column" gap="30px" height="100%" width="70%" padding="40px 40px 20px">
@@ -33,13 +34,39 @@ const Delivery = ({ field, register, setValue, setStep }) => {
         </Box>
         <Box display="flex" width="100%" gap="30px">
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
-            <Input type="text" {...register("email", { pattern: /\S+@\S+\.\S+/i })} />
-            <Input type="number" {...register("phone")} />
-            <TextArea rows={5} {...register("address", { required: true })} style={{ resize: "none" }}></TextArea>
+            <Input type="text" {...register("email", { required: true, pattern: /\S+@\S+\.\S+/i })} />
+            {errors?.email && (
+              <Text fontSize="14px" color="#FF8A00">
+                Invalid email
+              </Text>
+            )}
+            <Input type="number" {...register("phone", { required: true, minLength: 6, maxLength: 20 })} />
+            {errors?.phone && (
+              <Text fontSize="14px" color="#FF8A00">
+                Phone number must be between 6 and 20 digit
+              </Text>
+            )}
+            <TextArea rows={5} {...register("address", { required: true, maxLength: 120 })} style={{ resize: "none" }}></TextArea>
+            <Text fontSize="13px">
+              <Text fontSize="13px" color={addressLength > 120 ? "red" : "black"}>
+                {addressLength}
+              </Text>
+              /120
+            </Text>
           </Box>
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
             <Input type="text" {...register("dropshipName", { required: field.dropshipEnable })} disabled={!field.dropshipEnable} />
-            <Input type="number" {...register("dropshipPhone", { required: field.dropshipEnable })} disabled={!field.dropshipEnable} />
+            {errors?.dropshipName && (
+              <Text fontSize="14px" color="#FF8A00">
+                Drophipper name is required
+              </Text>
+            )}
+            <Input type="number" {...register("dropshipPhone", { required: field.dropshipEnable, minLength: 6, maxLength: 20 })} disabled={!field.dropshipEnable} />
+            {errors?.dropshipPhone && (
+              <Text fontSize="14px" color="#FF8A00">
+                Phone number must be between 6 and 20 digit
+              </Text>
+            )}
           </Box>
         </Box>
       </Box>

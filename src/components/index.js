@@ -61,6 +61,7 @@ export const Form = styled.form`
 
 export const Button = styled.button`
   padding: 20px 40px;
+  type: ${(props) => props.type};
   width: ${(props) => (props.block ? "100%" : "fit-content")};
   border-radius: 2px;
   background-color: #ff8a00;

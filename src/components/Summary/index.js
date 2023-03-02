@@ -53,7 +53,11 @@ const Summary = ({ field, errors, step, setStep, setValue }) => {
               {field.total.toLocaleString("en-US")}
             </Text>
           </Box>
-          {step !== 3 && <Button block={true}>{step === 1 ? "Continue to Payment" : `Pay with ${field.payment}`}</Button>}
+          {step !== 3 && (
+            <Button type="submit" block={true}>
+              {step === 1 ? "Continue to Payment" : `Pay with ${field.payment}`}
+            </Button>
+          )}
         </Box>
       </Box>
     </Box>

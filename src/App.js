@@ -7,7 +7,6 @@ import Shipment from "./components/Shipment";
 import Stepper from "./components/Stepper";
 import Summary from "./components/Summary";
 import debounce from "lodash.debounce";
-import Cookies from "js-cookie";
 
 function App() {
   const [step, setStep] = React.useState(1);
@@ -17,6 +16,7 @@ function App() {
     register,
     setValue,
     watch,
+    reset,
   } = useForm({
     defaultValues: {
       email: "",
@@ -28,30 +28,35 @@ function App() {
       dropshipName: "",
       dropshipPhone: "",
       total: 500000,
+      orderId: "",
     },
   });
   const field = watch();
 
   const onSubmit = (data) => {
-    console.log(data, ">>>>");
+    setStep(step + 1);
   };
 
   const save = React.useCallback(
-    debounce((field) => {
-      Cookies.set("checkout", JSON.stringify(field));
+    debounce((field, step) => {
+      localStorage.setItem("checkout_data", JSON.stringify({ ...field, step }));
     }, 2000),
     []
   );
 
   React.useEffect(() => {
-    save(field);
-  }, [field]);
+    save(field, step);
+  }, [field, step]);
 
   React.useEffect(() => {
-    if (Cookies.get("checkout")) {
-      const data = JSON.parse(Cookies.get("checkout"));
+    if (localStorage.getItem("checkout_data")) {
+      const data = JSON.parse(localStorage.getItem("checkout_data"));
       Object.keys(data).forEach((field) => {
-        setValue(field, data[field]);
+        if (field !== "step") {
+          setValue(field, data[field]);
+        } else {
+          setStep(data["step"]);
+        }
       });
     }
   }, []);
@@ -63,11 +68,11 @@ function App() {
         {(() => {
           switch (step) {
             case 1:
-              return <Delivery field={field} register={register} setValue={setValue} setStep={setStep} />;
+              return <Delivery field={field} register={register} setValue={setValue} setStep={setStep} errors={errors} />;
             case 2:
               return <Shipment field={field} setValue={setValue} setStep={setStep} />;
             default:
-              return <Finish setStep={setStep} />;
+              return <Finish setStep={setStep} field={field} setValue={setValue} reset={reset} />;
           }
         })()}
         <Summary field={field} errors={errors} step={step} setStep={setStep} setValue={setValue} />

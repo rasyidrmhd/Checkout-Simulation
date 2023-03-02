@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Text } from "..";
 import Icon from "../Icon";
 
-const ShipmentCard = ({ label, price, active }) => {
+const ShipmentCard = ({ label, price, active, setValue, field }) => {
   const [hover, setHover] = React.useState(false);
   return (
     <Box
@@ -16,13 +16,19 @@ const ShipmentCard = ({ label, price, active }) => {
       cursor="pointer"
       onMouseEnter={() => !active && setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={() => {
+        if (field === "shipment") {
+          setValue("shipment", label);
+        }
+        setValue(field, label);
+      }}
     >
       <Box display="flex" flexDirection="column" gap="2px">
         <Text fontWeight="500" fontSize={!price ? "16px" : "13px"} opacity={active ? "80%" : "60%"}>
           {label}
         </Text>
         <Text fontWeight="700" fontSize="16px" opacity={active ? "100%" : "60%"} color={active ? "#2D2A40" : "black"}>
-          {price}
+          {price.toLocaleString("en-US")} {label === "e-Wallet" && "left"}
         </Text>
       </Box>
       {active && <Icon icon="check" weight="400" size="18px" color="#1BD97B" />}

@@ -3,13 +3,17 @@ import { Box, Input, Text, TextArea } from "..";
 import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
 
-const Delivery = ({ register, setValue }) => {
+const Delivery = ({ field, register, setValue }) => {
   const [checked, setChecked] = React.useState(false);
   const handleChange = (e) => {
     const { checked } = e.target;
+    setValue("dropshipEnable", checked);
     if (!checked) {
       setValue("dropshipName", "");
       setValue("dropshipPhone", "");
+      setValue("total", field.total - 5900);
+    } else {
+      setValue("total", field.total + 5900);
     }
     setChecked(checked);
   };
@@ -36,8 +40,8 @@ const Delivery = ({ register, setValue }) => {
             <TextArea rows={5} {...register("address", { required: true })} style={{ resize: "none" }}></TextArea>
           </Box>
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
-            <Input type="text" {...register("dropshipName")} disabled={!checked} />
-            <Input type="number" {...register("dropshipPhone")} disabled={!checked} />
+            <Input type="text" {...register("dropshipName", { required: checked })} disabled={!checked} />
+            <Input type="number" {...register("dropshipPhone", { required: checked })} disabled={!checked} />
           </Box>
         </Box>
       </Box>

@@ -8,7 +8,7 @@ const PriceItem = ({ label, price }) => {
         {label}
       </Text>
       <Text fontSize="14px" fontWeight="700">
-        {price}
+        {Number(price).toLocaleString("en-US")}
       </Text>
     </Box>
   );

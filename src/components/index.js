@@ -188,6 +188,7 @@ export const Label = styled.label`
   bottom: ${(props) => props.bottom};
   right: ${(props) => props.right};
   left: ${(props) => props.left};
+  transition: 0.1s linear;
 `;
 
 export const Input = styled.input`

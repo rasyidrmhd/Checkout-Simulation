@@ -107,7 +107,7 @@ export const DeliveryBox = styled(Box)`
   width: 70%;
   height: 100%;
   @media only screen and (max-width: 768px) {
-    padding: 20px 20px;
+    padding: 20px 20px 30px;
     width: 100%;
     height: fit-content;
   }
@@ -116,7 +116,7 @@ export const DeliveryBox = styled(Box)`
 export const DeliveryContent = styled(Box)`
   gap: 36px;
   @media only screen and (max-width: 768px) {
-    gap: 20px;
+    gap: 10px;
   }
 `;
 
@@ -137,16 +137,41 @@ export const FormBox = styled(Box)`
 
 export const ShipmentBox = styled(DeliveryBox)``;
 
+export const ShipmentContent = styled(Box)`
+  gap: 60px;
+  @media only screen and (max-width: 768px) {
+    gap: 10px;
+  }
+`;
+
+export const ShipmentContainer = styled(Box)`
+  gap: 30px;
+  @media only screen and (max-width: 768px) {
+    gap: 10px;
+  }
+`;
+
 export const FinishBox = styled(Box)`
   height: 100%;
   width: 70%;
   justify-content: center;
   align-items: center;
   @media only screen and (max-width: 768px) {
-    padding: 20px 20px;
+    padding: 20px 20px 30px;
     justify-content: start;
     align-items: start;
     width: 100%;
+  }
+`;
+
+export const FinishContainer = styled(ShipmentContainer)``;
+
+export const FinishContent = styled(Box)`
+  gap: 60px;
+  flex-direction: column;
+  @media only screen and (max-width: 768px) {
+    gap: 30px;
+    flex-direction: column-reverse;
   }
 `;
 

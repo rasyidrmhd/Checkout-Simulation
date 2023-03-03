@@ -1,15 +1,15 @@
 import React from "react";
-import { Box, DeliveryBox, Text } from "..";
+import { Box, ShipmentBox, ShipmentContainer, ShipmentContent } from "..";
 import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
 import ShipmentCard from "./ShipmentCard";
 
 const Shipment = ({ field, setValue, setStep }) => {
   return (
-    <DeliveryBox display="flex" flexDirection="column" gap="30px">
+    <ShipmentBox display="flex" flexDirection="column" gap="30px">
       <BackNavigation onClick={() => setStep(1)}>Back to delivery</BackNavigation>
-      <Box display="flex" flexDirection="column" gap="60px">
-        <Box display="flex" flexDirection="column" gap="30px">
+      <ShipmentContent display="flex" flexDirection="column">
+        <ShipmentContainer display="flex" flexDirection="column">
           <StyledHeader>Shipment</StyledHeader>
           <Box display="flex" gap="10px" flexWrap="wrap">
             {[
@@ -20,8 +20,8 @@ const Shipment = ({ field, setValue, setStep }) => {
               <ShipmentCard label={option.label} price={option.price} key={idx} active={option.label === field.shipment} setValue={setValue} type="shipment" field={field} />
             ))}
           </Box>
-        </Box>
-        <Box display="flex" flexDirection="column" gap="30px">
+        </ShipmentContainer>
+        <ShipmentContainer display="flex" flexDirection="column" gap="30px">
           <StyledHeader>Payment</StyledHeader>
           <Box display="flex" gap="10px" flexWrap="wrap">
             {[
@@ -32,9 +32,9 @@ const Shipment = ({ field, setValue, setStep }) => {
               <ShipmentCard label={option.label} price={option.price} key={idx} active={option.label === field.payment} setValue={setValue} type="payment" field={field} />
             ))}
           </Box>
-        </Box>
-      </Box>
-    </DeliveryBox>
+        </ShipmentContainer>
+      </ShipmentContent>
+    </ShipmentBox>
   );
 };
 

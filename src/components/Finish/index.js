@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, FinishBox, Text } from "..";
+import { Box, FinishBox, FinishContainer, FinishContent, Text } from "..";
 import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
 import { estimate } from "../summary";
@@ -23,8 +23,8 @@ const Finish = ({ setStep, field, setValue, reset }) => {
 
   return (
     <FinishBox display="flex">
-      <Box display="flex" flexDirection="column" gap="60px">
-        <Box display="flex" flexDirection="column" gap="30px">
+      <FinishContent display="flex">
+        <FinishContainer display="flex" flexDirection="column" gap="30px">
           <StyledHeader>Thank you</StyledHeader>
           <Box display="flex" flexDirection="column" gap="10px">
             <Text fontSize="14px">Order ID : {field.orderId || orderId}</Text>
@@ -32,7 +32,7 @@ const Finish = ({ setStep, field, setValue, reset }) => {
               Your order will be delivered {estimate[field.shipment]} with {field.shipment}
             </Text>
           </Box>
-        </Box>
+        </FinishContainer>
         <BackNavigation
           onClick={() => {
             setStep(1);
@@ -42,7 +42,7 @@ const Finish = ({ setStep, field, setValue, reset }) => {
         >
           Go to homepage
         </BackNavigation>
-      </Box>
+      </FinishContent>
     </FinishBox>
   );
 };

@@ -1,19 +1,14 @@
 import React from "react";
-import { Box, Text } from "..";
+import { Box, ShipmentCardBox, Text } from "..";
 import Icon from "../Icon";
 
 const ShipmentCard = ({ label, price, active, setValue, type, field }) => {
   const [hover, setHover] = React.useState(false);
   return (
-    <Box
+    <ShipmentCardBox
       display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-      padding="12px 15px"
       border={`${active ? "2px" : "1px"} solid ${active || hover ? "#1BD97B" : "#CCCCCC"}`}
       backgroundColor={active ? "#1BD97B1A" : "white"}
-      width="180px"
-      cursor="pointer"
       onMouseEnter={() => !active && setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={() => {
@@ -33,7 +28,7 @@ const ShipmentCard = ({ label, price, active, setValue, type, field }) => {
         </Text>
       </Box>
       {active && <Icon icon="check" weight="400" size="18px" color="#1BD97B" />}
-    </Box>
+    </ShipmentCardBox>
   );
 };
 

@@ -155,6 +155,17 @@ export const ShipmentContainer = styled(Box)`
   }
 `;
 
+export const ShipmentCardBox = styled(Box)`
+  min-width: 180px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    flex-grow: 1;
+  }
+`;
+
 export const FinishBox = styled(Box)`
   height: 100%;
   width: 70%;

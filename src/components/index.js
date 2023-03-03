@@ -102,6 +102,16 @@ export const SummaryContent = styled(Box)`
   }
 `;
 
+export const SummaryPriceBox = styled(Box)`
+  flex-direction: row;
+  justify-content: space-between;
+  @media only screen and (max-width: 300px) {
+    flex-direction: column;
+    justify-content: start;
+    gap: 5px;
+  }
+`;
+
 export const DeliveryBox = styled(Box)`
   padding: 40px 40px 20px;
   width: 70%;

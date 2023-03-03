@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, HiddenBox, SummaryBox, SummaryContent, Text } from "..";
+import { Box, Button, HiddenBox, SummaryBox, SummaryContent, SummaryPriceBox, Text } from "..";
 import Divider from "../Divider";
 import DeliveryItem from "./DeliveryItem";
 import PriceItem from "./PriceItem";
@@ -47,14 +47,14 @@ const Summary = ({ field, errors, step, setValue }) => {
               </PriceItem>
             )}
           </Box>
-          <Box display="flex" justifyContent="space-between">
+          <SummaryPriceBox display="flex">
             <Text fontSize="24px" color="#FF8A00" fontFamily="montserrat" fontWeight="700">
               Total
             </Text>
             <Text fontSize="24px" color="#FF8A00" fontFamily="montserrat" fontWeight="700">
               {field.total.toLocaleString("en-US")}
             </Text>
-          </Box>
+          </SummaryPriceBox>
           {step !== 3 && (
             <Button type="submit" block={true}>
               {step === 1 ? "Continue to Payment" : `Pay with ${field.payment}`}

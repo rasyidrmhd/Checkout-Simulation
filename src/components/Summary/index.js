@@ -22,7 +22,7 @@ const Summary = ({ field, errors, step, setValue }) => {
   }, [step]);
   return (
     <SummaryBox display="flex">
-      <HiddenBox dispayIn="large">
+      <HiddenBox displayIn="large">
         <Divider orientation="vertical" height="calc(100% - 20px)" thickness="1px" backgroundColor="#FF8A00" opacity="20%" />
       </HiddenBox>
       <SummaryContent display="flex" flexDirection="column" justifyContent="space-between">

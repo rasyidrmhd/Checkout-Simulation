@@ -201,6 +201,7 @@ export const Input = styled.input`
   type: ${(props) => props.type};
   &:disabled {
     cursor: not-allowed;
+    background-color: #f5f5f5;
   }
   &:focus {
     border: 1px solid ${(props) => (props.isError ? "#FF8A00" : props.isValid ? "#1BD97B" : "blue")};

@@ -39,6 +39,7 @@ export const Box = styled.div`
 
 export const AppBox = styled(Box)`
   width: 100vw;
+  min-height: 100vh;
   padding: 55px 50px;
   position: relative;
   @media only screen and (max-width: 768px) {
@@ -51,7 +52,7 @@ export const AppBox = styled(Box)`
 export const WhiteBox = styled(Box)`
   flex-direction: row;
   width: 100%;
-  height: fit-content;
+  min-height: 550px;
   @media only screen and (max-width: 768px) {
     flex-direction: column;
   }

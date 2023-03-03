@@ -1,10 +1,10 @@
 # Hasil
 
-Saya sudah mengusahakan semirip mungkin dengan yang ada pada design. namun jujur saya agak kesulitan untuk membuatnya _responsive_.
+Saya sudah mengusahakan mengerjakan semirip mungkin dengan yang ada pada design.
 
-Saya menyimpan data form kedalam _local storage_ dengan _key_ "checkout_data", jadi ketika user memuat ulang atau saat berkunjung kembali, kondisi terakhir pada halaman masih tetap terjaga seperti sebelumnya.
+Data form disimpan kedalam _local storage_ dengan _key_ "checkout_data", jadi ketika user memuat ulang atau saat berkunjung kembali, kondisi terakhir pada halaman masih tetap terjaga seperti sebelumnya.
 
-Metode yang saya gunakan untuk menyimpan data form adalah dengan menggunakan _debounce_ setiap 2 detik ketika ada perubahan. hal ini dilakukan agar saat user sedang mengisi form pada halaman _delivery_, setiap perubahan (walau hanya 1 huruf) pada _input_ tidak akan langsung disimpan secara terus menerus.
+Metode yang saya gunakan untuk menyimpan data form adalah dengan menggunakan _debounce_ setiap 2 detik setelah ada perubahan. hal ini dilakukan agar saat user sedang mengisi form pada halaman _delivery_, setiap perubahan (walau hanya 1 huruf) pada _input_ tidak akan langsung disimpan secara terus menerus dan membuat proses yang terlalu banyak.
 
 ## Delivery Page
 

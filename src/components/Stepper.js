@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text } from ".";
+import { Box, StepperBox, Text } from ".";
 import Icon from "./Icon";
 
 const StepperGroup = ({ children, step, active, showArrow = true }) => {
@@ -22,13 +22,13 @@ const StepperGroup = ({ children, step, active, showArrow = true }) => {
 
 const Stepper = ({ step }) => {
   return (
-    <Box backgroundColor="#fffae6" padding="20px 40px" borderRadius="35px" display="flex" gap="20px" top="20px" position="absolute">
+    <StepperBox backgroundColor="#fffae6" borderRadius="35px" display="flex">
       {["Delivery", "Payment", "Finish"].map((text, idx) => (
         <StepperGroup step={idx + 1} key={idx} showArrow={idx !== 2} active={step >= idx + 1}>
           {text}
         </StepperGroup>
       ))}
-    </Box>
+    </StepperBox>
   );
 };
 

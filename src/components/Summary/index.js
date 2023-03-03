@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Text } from "..";
+import { Box, Button, SummaryBox, Text } from "..";
 import Divider from "../Divider";
 import DeliveryItem from "./DeliveryItem";
 import PriceItem from "./PriceItem";
@@ -21,7 +21,7 @@ const Summary = ({ field, errors, step, setStep, setValue }) => {
     setValue("total", 500000 + (step !== 1 ? price[field.shipment] : 0) + (field.dropshipEnable ? 5900 : 0));
   }, [step]);
   return (
-    <Box display="flex" height="100%" width="30%" padding="90px 0 0">
+    <SummaryBox display="flex" height="100%">
       <Divider orientation="vertical" height="calc(100% - 20px)" thickness="1px" backgroundColor="#FF8A00" opacity="20%" />
       <Box display="flex" flexDirection="column" height="100%" width="100%" padding="0 20px 20px" justifyContent="space-between">
         <Box display="flex" flexDirection="column" gap="10px">
@@ -60,7 +60,7 @@ const Summary = ({ field, errors, step, setStep, setValue }) => {
           )}
         </Box>
       </Box>
-    </Box>
+    </SummaryBox>
   );
 };
 

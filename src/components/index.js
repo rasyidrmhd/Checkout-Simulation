@@ -26,6 +26,7 @@ export const Box = styled.div`
   box-shadow: ${(props) => props.boxShadow};
   display: ${(props) => props.display};
   flex-direction: ${(props) => props.flexDirection};
+  flex-wrap: ${(props) => props.flexWrap};
   gap: ${(props) => props.gap};
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
@@ -39,16 +40,22 @@ export const AppBox = styled(Box)`
   width: 100vw;
   height: 100vh;
   padding: 55px 50px;
+  position: relative;
   @media only screen and (max-width: 768px) {
+    width: 100vw;
+    height: 100vh;
     flex-direction: column;
-    padding: 25px 25px;
+    padding: 50px 25px;
+    position: static;
   }
 `;
 
 export const WhiteBox = styled(Box)`
   flex-direction: row;
+  height: 100%;
   @media only screen and (max-width: 768px) {
     flex-direction: column;
+    height: fit-content;
   }
 `;
 
@@ -68,11 +75,52 @@ export const StepperBox = styled(Box)`
 export const SummaryBox = styled(Box)`
   padding: 90px 0 0;
   width: 30%;
+  height: 100%;
   @media only screen and (max-width: 768px) {
     padding: 0;
     width: 100%;
+    height: fit-content;
   }
 `;
+
+export const SummaryContent = styled(Box)`
+  padding: 0 20px 20px;
+  width: 100%;
+  height: 100%;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    height: fit-content;
+    gap: 30px;
+  }
+`;
+
+export const DeliveryBox = styled(Box)`
+  padding: 40px 40px 20px;
+  width: 70%;
+  height: 100%;
+  @media only screen and (max-width: 768px) {
+    padding: 20px 20px;
+    width: 100%;
+    height: fit-content;
+  }
+`;
+
+export const HiddenBox = styled(Box)`
+  display: ${(props) => (props.displayIn === "large" ? props.display : "none")};
+  @media only screen and (max-width: 768px) {
+    display: ${(props) => (props.displayIn === "large" ? "none" : props.display)};
+  }
+`;
+
+export const FormBox = styled(Box)`
+  flex-direction: row;
+  gap: 30px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+export const ShipmentBox = styled(DeliveryBox)``;
 
 export const Button = styled.button`
   padding: 20px 40px;

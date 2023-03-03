@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Input, Text, TextArea, Label } from "..";
+import { Box, Input, Text, TextArea, Label, DeliveryBox, HiddenBox, FormBox } from "..";
 import BackNavigation from "../BackNavigation";
 import Icon from "../Icon";
 import StyledHeader from "../StyledHeader";
@@ -24,21 +24,21 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
   const addressLength = React.useMemo(() => 120 - field.address.length, [field.address]);
 
   return (
-    <Box display="flex" flexDirection="column" gap="30px" height="100%" width="70%" padding="40px 40px 20px">
+    <DeliveryBox display="flex" flexDirection="column" gap="30px">
       <BackNavigation onClick={() => setStep(1)}>Back to cart</BackNavigation>
       <Box display="flex" flexDirection="column" gap="36px">
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <StyledHeader>Delivery details</StyledHeader>
-          <Box display="flex" alignItems="center" gap="10px" onClick={() => handleChange(!field?.dropshipEnable)} cursor="pointer">
+          <HiddenBox display="flex" displayIn="large" alignItems="center" gap="10px" onClick={() => handleChange(!field?.dropshipEnable)} cursor="pointer">
             <Box display="flex" alignItems="center" justifyContent="center" width="20px" height="20px" border="2px solid #1BD97B">
               {field.dropshipEnable && <Icon icon="check" weight="400" size="18px" color="#1BD97B" />}
             </Box>
             <Text color="#2D2A40" fontWeight="500" fontSize="14px" opacity="80%">
               Send as dropshipper
             </Text>
-          </Box>
+          </HiddenBox>
         </Box>
-        <Box display="flex" width="100%" gap="30px">
+        <FormBox display="flex" width="100%">
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
             <StyledInput field={field.email} error={errors?.email} label="Email">
               <Input id="email" type="text" isError={errors?.email} isValid={!errors?.email && field.email.length} {...register("email", { required: true, pattern: /\S+@\S+\.\S+/i })} />
@@ -89,7 +89,16 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
               </Text>
             )}
           </Box>
+
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
+            <HiddenBox display="flex" displayIn="small" alignItems="center" gap="10px" onClick={() => handleChange(!field?.dropshipEnable)} cursor="pointer">
+              <Box display="flex" alignItems="center" justifyContent="center" width="20px" height="20px" border="2px solid #1BD97B">
+                {field.dropshipEnable && <Icon icon="check" weight="400" size="18px" color="#1BD97B" />}
+              </Box>
+              <Text color="#2D2A40" fontWeight="500" fontSize="14px" opacity="80%">
+                Send as dropshipper
+              </Text>
+            </HiddenBox>
             <StyledInput field={field.dropshipName} error={errors?.dropshipName} label="Dropshipper Name">
               <Input
                 id="dropshippername"
@@ -126,9 +135,9 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
               </Text>
             )}
           </Box>
-        </Box>
+        </FormBox>
       </Box>
-    </Box>
+    </DeliveryBox>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, SummaryBox, Text } from "..";
+import { Box, Button, HiddenBox, SummaryBox, SummaryContent, Text } from "..";
 import Divider from "../Divider";
 import DeliveryItem from "./DeliveryItem";
 import PriceItem from "./PriceItem";
@@ -16,14 +16,16 @@ const price = {
   "Personal Courier": 29000,
 };
 
-const Summary = ({ field, errors, step, setStep, setValue }) => {
+const Summary = ({ field, errors, step, setValue }) => {
   React.useEffect(() => {
     setValue("total", 500000 + (step !== 1 ? price[field.shipment] : 0) + (field.dropshipEnable ? 5900 : 0));
   }, [step]);
   return (
-    <SummaryBox display="flex" height="100%">
-      <Divider orientation="vertical" height="calc(100% - 20px)" thickness="1px" backgroundColor="#FF8A00" opacity="20%" />
-      <Box display="flex" flexDirection="column" height="100%" width="100%" padding="0 20px 20px" justifyContent="space-between">
+    <SummaryBox display="flex">
+      <HiddenBox dispayIn="large">
+        <Divider orientation="vertical" height="calc(100% - 20px)" thickness="1px" backgroundColor="#FF8A00" opacity="20%" />
+      </HiddenBox>
+      <SummaryContent display="flex" flexDirection="column" justifyContent="space-between">
         <Box display="flex" flexDirection="column" gap="10px">
           <Text fontSize="24px" color="#FF8A00" fontFamily="montserrat" fontWeight="700" lineHeight="44px">
             Summary
@@ -59,7 +61,7 @@ const Summary = ({ field, errors, step, setStep, setValue }) => {
             </Button>
           )}
         </Box>
-      </Box>
+      </SummaryContent>
     </SummaryBox>
   );
 };

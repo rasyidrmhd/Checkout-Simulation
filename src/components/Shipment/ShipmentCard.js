@@ -7,6 +7,7 @@ const ShipmentCard = ({ label, price, active, setValue, type, field }) => {
   return (
     <Box
       display="flex"
+      flexGrow="1"
       justifyContent="space-between"
       alignItems="center"
       padding="12px 15px"

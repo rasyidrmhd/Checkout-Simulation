@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text } from "..";
+import { Box, FinishBox, Text } from "..";
 import BackNavigation from "../BackNavigation";
 import StyledHeader from "../StyledHeader";
 import { estimate } from "../summary";
@@ -22,7 +22,7 @@ const Finish = ({ setStep, field, setValue, reset }) => {
   }, [orderId]);
 
   return (
-    <Box display="flex" height="100%" width="70%" justifyContent="center" alignItems="center">
+    <FinishBox display="flex">
       <Box display="flex" flexDirection="column" gap="60px">
         <Box display="flex" flexDirection="column" gap="30px">
           <StyledHeader>Thank you</StyledHeader>
@@ -43,7 +43,7 @@ const Finish = ({ setStep, field, setValue, reset }) => {
           Go to homepage
         </BackNavigation>
       </Box>
-    </Box>
+    </FinishBox>
   );
 };
 

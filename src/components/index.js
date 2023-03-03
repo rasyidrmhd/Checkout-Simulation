@@ -27,6 +27,7 @@ export const Box = styled.div`
   display: ${(props) => props.display};
   flex-direction: ${(props) => props.flexDirection};
   flex-wrap: ${(props) => props.flexWrap};
+  flex-grow: ${(props) => props.flexGrow};
   gap: ${(props) => props.gap};
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
@@ -68,6 +69,13 @@ export const StepperBox = styled(Box)`
     align-self: center;
     position: static;
     padding: 10px 20px;
+    gap: 10px;
+  }
+`;
+
+export const StepperGroupBox = styled(Box)`
+  gap: 20px;
+  @media only screen and (max-width: 768px) {
     gap: 10px;
   }
 `;
@@ -121,6 +129,19 @@ export const FormBox = styled(Box)`
 `;
 
 export const ShipmentBox = styled(DeliveryBox)``;
+
+export const FinishBox = styled(Box)`
+  height: 100%;
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (max-width: 768px) {
+    padding: 20px 20px;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+  }
+`;
 
 export const Button = styled.button`
   padding: 20px 40px;

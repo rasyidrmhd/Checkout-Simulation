@@ -66,7 +66,7 @@ function App() {
   return (
     <AppBox backgroundColor="#fffae6" display="flex" justifyContent="center">
       <Stepper step={step} />
-      <WhiteBox as="form" onSubmit={handleSubmit(onSubmit)} backgroundColor="white" borderRadius="4px" boxShadow="2px 10px 20px rgba(255, 138, 0, 0.1)" width="100%" display="flex">
+      <WhiteBox as="form" onSubmit={handleSubmit(onSubmit)} backgroundColor="white" borderRadius="4px" boxShadow="2px 10px 20px rgba(255, 138, 0, 0.1)" display="flex">
         {(() => {
           switch (step) {
             case 1:

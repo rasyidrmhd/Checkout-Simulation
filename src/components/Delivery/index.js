@@ -44,12 +44,12 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
             )}
 
             <StyledInput field={field.phone} error={errors?.phone} label="Phone">
-              <Input id="phone" type="text" isError={errors?.phone} isValid={!errors?.phone && field.phone.length} {...register("phone", { required: true, pattern: /^[0-9-+()]+$/i, minLength: 6, maxLength: 20 })} />
+              <Input id="phone" type="text" isError={errors?.phone} isValid={!errors?.phone && field.phone.length} {...register("phone", { required: true, pattern: /^((\(\+\d{1,3}\)|0)|\+)?\d{6,19}$/gm, minLength: 6, maxLength: 20 })} />
             </StyledInput>
             {errors?.phone && (
               <Text fontSize="14px" color="#FF8A00">
                 {errors?.phone.type === "pattern"
-                  ? "Phone number only may contains number, -, +, (, )"
+                  ? "Phone number only may contains number, -, +, (, ). Example using bracket should be like this: (+62)"
                   : errors?.phone.type === "minLength" || errors?.phone.type === "maxLength"
                   ? "Phone number must be between 6 and 20 digit"
                   : "Phone number is required"}

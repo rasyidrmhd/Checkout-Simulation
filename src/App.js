@@ -55,11 +55,38 @@ function App() {
       const data = JSON.parse(localStorage.getItem("checkout_data"));
       Object.keys(data).forEach((field) => {
         if (field !== "step") {
+          if (field === "shipment") {
+            const shipment = ["GO-SEND", "JNE", "Personal Courier"];
+            setValue("shipment", !shipment.includes(data[field]) ? "GO-SEND" : data[field]);
+            return;
+          }
+
+          if (field === "payment") {
+            const payment = ["e-Wallet", "Bank Transfer", "Virtual Account"];
+            setValue("payment", !payment.includes(data[field]) ? "e-Wallet" : data[field]);
+            return;
+          }
+
           setValue(field, data[field]);
+        }
+      });
+
+      const step1Field = ["email", "phone", "address", "dropshipEnable", "dropshipName", "dropshipPhone"];
+      if (![1, 2, 3].includes(data["step"]) || !step1Field.every((field) => Object.keys(data).includes(field))) {
+        setStep(1);
+      } else {
+        const required = step1Field.slice(0, 3);
+        const dropship = step1Field.slice(4, 2);
+        if (required.some((field) => data[field] === "")) {
+          setStep(1);
+        } else if (data["dropshipEnable"]) {
+          if (dropship.some((field) => data[field] === "")) {
+            setStep(1);
+          }
         } else {
           setStep(data["step"]);
         }
-      });
+      }
     }
   }, []);
 

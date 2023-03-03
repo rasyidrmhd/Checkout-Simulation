@@ -14,8 +14,8 @@ _user_ tidak akan bisa melanjutkan ke halaman _payment_ apabila semua _input_ be
 
 ## Payment Page
 
-_Shipment_ dan _payment_ secara _default_ sudah memiliki _value_ yaitu opsi pertama pada masing-masing pilihan. jadi user dapat langsung melanjutkan ke halaman _finish_ atau dapat menggantinya sesuai kebutuhan.
+_Shipment_ dan _payment_ secara _default_ sudah memiliki _value_ yaitu opsi pertama pada masing-masing pilihan. jadi user dapat langsung melanjutkan atau dapat menggantinya sesuai keinginan.
 
 ## Finish Page
 
-Pada halaman ini jika user menekan navigasi _go to homepage_ maka semua data akan di _reset_ kembali dan kembali ke halaman _delivery_.
+Pada halaman ini jika user menekan navigasi _go to homepage_ maka semua data akan di _reset_, data pada _local storage_ juga akan dihapus, lalu kembali ke halaman _delivery_.

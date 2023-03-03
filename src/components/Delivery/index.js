@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Input, Text, TextArea, Label, DeliveryBox, HiddenBox, FormBox } from "..";
+import { Box, Input, Text, TextArea, Label, DeliveryBox, HiddenBox, FormBox, DeliveryContent } from "..";
 import BackNavigation from "../BackNavigation";
 import Icon from "../Icon";
 import StyledHeader from "../StyledHeader";
+import StyledCheckbox from "./StyledCheckbox";
 import StyledInput from "./StyledInput";
 
 const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) => {
@@ -26,17 +27,10 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
   return (
     <DeliveryBox display="flex" flexDirection="column" gap="30px">
       <BackNavigation onClick={() => setStep(1)}>Back to cart</BackNavigation>
-      <Box display="flex" flexDirection="column" gap="36px">
+      <DeliveryContent display="flex" flexDirection="column">
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <StyledHeader>Delivery details</StyledHeader>
-          <HiddenBox display="flex" displayIn="large" alignItems="center" gap="10px" onClick={() => handleChange(!field?.dropshipEnable)} cursor="pointer">
-            <Box display="flex" alignItems="center" justifyContent="center" width="20px" height="20px" border="2px solid #1BD97B">
-              {field.dropshipEnable && <Icon icon="check" weight="400" size="18px" color="#1BD97B" />}
-            </Box>
-            <Text color="#2D2A40" fontWeight="500" fontSize="14px" opacity="80%">
-              Send as dropshipper
-            </Text>
-          </HiddenBox>
+          <StyledCheckbox displayIn="large" enable={field.dropshipEnable} onClick={() => handleChange(!field?.dropshipEnable)} />
         </Box>
         <FormBox display="flex" width="100%">
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
@@ -91,14 +85,7 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
           </Box>
 
           <Box display="flex" flexDirection="column" width="100%" gap="10px">
-            <HiddenBox display="flex" displayIn="small" alignItems="center" gap="10px" onClick={() => handleChange(!field?.dropshipEnable)} cursor="pointer">
-              <Box display="flex" alignItems="center" justifyContent="center" width="20px" height="20px" border="2px solid #1BD97B">
-                {field.dropshipEnable && <Icon icon="check" weight="400" size="18px" color="#1BD97B" />}
-              </Box>
-              <Text color="#2D2A40" fontWeight="500" fontSize="14px" opacity="80%">
-                Send as dropshipper
-              </Text>
-            </HiddenBox>
+            <StyledCheckbox displayIn="small" enable={field.dropshipEnable} onClick={() => handleChange(!field?.dropshipEnable)} />
             <StyledInput field={field.dropshipName} error={errors?.dropshipName} label="Dropshipper Name">
               <Input
                 id="dropshippername"
@@ -136,7 +123,7 @@ const Delivery = ({ field, register, setValue, setStep, errors, clearErrors }) =
             )}
           </Box>
         </FormBox>
-      </Box>
+      </DeliveryContent>
     </DeliveryBox>
   );
 };

@@ -113,6 +113,13 @@ export const DeliveryBox = styled(Box)`
   }
 `;
 
+export const DeliveryContent = styled(Box)`
+  gap: 36px;
+  @media only screen and (max-width: 768px) {
+    gap: 20px;
+  }
+`;
+
 export const HiddenBox = styled(Box)`
   display: ${(props) => (props.displayIn === "large" ? props.display : "none")};
   @media only screen and (max-width: 768px) {
@@ -140,6 +147,17 @@ export const FinishBox = styled(Box)`
     justify-content: start;
     align-items: start;
     width: 100%;
+  }
+`;
+
+export const StyledHeaderText = styled(Text)`
+  font-size: 36px;
+  color: #ff8a00;
+  font-family: montserrat;
+  font-weight: 700;
+  @media only screen and (max-width: 768px) {
+    font-size: 24px;
+    line-height: 44px;
   }
 `;
 

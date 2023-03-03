@@ -4,6 +4,8 @@ Saya sudah mengusahakan mengerjakan semirip mungkin dengan yang ada pada design.
 
 Data form disimpan kedalam _local storage_ dengan _key_ "checkout_data", jadi ketika user memuat ulang atau saat berkunjung kembali, kondisi terakhir pada halaman masih tetap terjaga seperti sebelumnya.
 
+_Local storage_ akan di _load_ saat pertama kali aplikasi dibuka. Terdapat beberapa validasi juga saat _load_ data ini, jadi user tidak akan bisa iseng memasukkan data yang aneh agar bisa skip salah satu _step_ atau yang lainnya.
+
 Metode yang saya gunakan untuk menyimpan data form adalah dengan menggunakan _debounce_ setiap 2 detik setelah ada perubahan. hal ini dilakukan agar saat user sedang mengisi form pada halaman _delivery_, setiap perubahan (walau hanya 1 huruf) pada _input_ tidak akan langsung disimpan secara terus menerus dan membuat proses yang terlalu banyak.
 
 saya juga inisiatif untuk men _deploy_ project ini ke firebase agar lebih mudah dalam pengetesan baik di laptop, tablet, ataupun mobile:

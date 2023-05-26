@@ -1,7 +1,3 @@
-# Hasil
-
-Saya sudah mengusahakan mengerjakan semirip mungkin dengan yang ada pada design.
-
 Data form disimpan kedalam _local storage_ dengan _key_ "checkout_data", jadi ketika user memuat ulang atau saat berkunjung kembali, kondisi terakhir pada halaman masih tetap terjaga seperti sebelumnya.
 
 _Local storage_ akan di _load_ saat pertama kali aplikasi dibuka. Terdapat beberapa validasi juga saat _load_ data ini, jadi user tidak akan bisa iseng memasukkan data yang aneh agar bisa skip salah satu _step_ atau yang lainnya.

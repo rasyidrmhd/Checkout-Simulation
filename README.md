@@ -2,14 +2,13 @@ Data form disimpan kedalam _local storage_ dengan _key_ "checkout_data", jadi ke
 
 _Local storage_ akan di _load_ saat pertama kali aplikasi dibuka. Terdapat beberapa validasi juga saat _load_ data ini, jadi user tidak akan bisa iseng memasukkan data yang aneh agar bisa skip salah satu _step_ atau yang lainnya.
 
-Metode yang saya gunakan untuk menyimpan data form adalah dengan menggunakan _debounce_ setiap 2 detik setelah ada perubahan. hal ini dilakukan agar saat user sedang mengisi form pada halaman _delivery_, setiap perubahan (walau hanya 1 huruf) pada _input_ tidak akan langsung disimpan secara terus menerus dan membuat proses yang terlalu banyak.
+Metode yang digunakan untuk menyimpan data form adalah dengan menggunakan _debounce_ setiap 2 detik setelah ada perubahan. hal ini dilakukan agar saat user sedang mengisi form pada halaman _delivery_, setiap perubahan (walau hanya 1 huruf) pada _input_ tidak akan langsung disimpan secara terus menerus dan membuat proses yang terlalu banyak.
 
-saya juga inisiatif untuk men _deploy_ project ini ke firebase agar lebih mudah dalam pengetesan baik di laptop, tablet, ataupun mobile:
 [Checkout Simulation App](https://checkout-simulation.web.app/)
 
 ## Delivery Page
 
-Pada `text area` _address_ ada ketentuan untuk menampilkan _counter_ angka jumlah karakter yang tersisa, dikarenakan saya agak bingung harus ditampilkan dimana, akhirnya saya improvisasi dengan menampilkannya di kanan atas. saya juga menjadikan _email_ dan _phone number_ menjadi _required_ dikarenakan menurut saya kedua data ini penting ketika akan melakukan sebuah pembayaran _online_.
+Pada `text area` _address_ ada ketentuan untuk menampilkan _counter_ angka jumlah karakter yang tersisa.
 
 _user_ tidak akan bisa melanjutkan ke halaman _payment_ apabila semua _input_ belum terisi (kecuali _input_ _dropshipper_ dapat dikosongkan jika _dropshipper_ tidak dicentang).
 
